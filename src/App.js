@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import reactDOM from "react-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./app.css";
@@ -8,20 +8,30 @@ import Body from "./components/Body";
 // import About from "./components/About";
 // import ContactUs from "./components/ContactUs";
 import RestroMenu from "./components/RestroMenu";
+import UserContext from "./components/util/UserContext";
 
+
+///lazy loading
 
 const ContactUs=lazy(()=>import('./components/ContactUs'))
 
 const About=lazy(()=>import('./components/About'))
 
-
 // Creating App Layout //
 const App = () => {
+  const [uname, setuname] = useState()
+
+useEffect(()=>{
+setuname('Likith')
+},[])
+
   return (
+    <UserContext.Provider value={{username:uname ,setuname}}>
     <div>
       <Header />
       <Outlet />
     </div>
+    </UserContext.Provider>
   );
 };
 export default App

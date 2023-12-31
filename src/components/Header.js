@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AiOutlineShoppingCart} from "react-icons/ai";
 import { Link } from "react-router-dom";
 import useStatus from "./util/useStatus";
+import UserContext from "./util/UserContext";
 
 
 const Header = () => {
   const [logins, setlogins] = useState('LogIn')
 
+
+const  data=useContext(UserContext)
 
 const status=useStatus()
 
@@ -33,7 +36,7 @@ const status=useStatus()
             <Link to='/about'><li>About</li></Link>
             <li>Career</li>
            <Link to='/contactus'><li>Contact us</li></Link> 
-            
+            <li>{data.username}</li>
             </ul>
             <AiOutlineShoppingCart className="cart" />
             <button onClick={handleLogin} className="log">{logins}</button>

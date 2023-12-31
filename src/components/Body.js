@@ -1,8 +1,9 @@
 
 import ResturantContainer from "./ResturantContainer";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import useStatus from "./util/useStatus";
+import UserContext from "./util/UserContext";
 
 
 const Body = () => {
@@ -16,7 +17,7 @@ const Body = () => {
     fetchdata()
   }, [])
 
-
+  const  data=useContext(UserContext)
 const status =useStatus()
 
   const fetchdata = async () => {
@@ -70,6 +71,7 @@ const status =useStatus()
       <button onClick={handleAllfood}>All Foods</button>
       <input onChange={handleSearch} type="search" />
       <span> <button onClick={searchBtn}>Search</button> </span>
+      <span className="welcometext">Welcome {data.username} </span>
       <ResturantContainer data={search} />
     </div>
   );
