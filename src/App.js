@@ -1,13 +1,19 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import reactDOM from "react-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./app.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import About from "./components/About";
-import ContactUs from "./components/ContactUs";
+// import About from "./components/About";
+// import ContactUs from "./components/ContactUs";
 import RestroMenu from "./components/RestroMenu";
+
+
+const ContactUs=lazy(()=>import('./components/ContactUs'))
+
+const About=lazy(()=>import('./components/About'))
+
 
 // Creating App Layout //
 const App = () => {
@@ -30,11 +36,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: 'About',
-        element: <About />,
+        element: <Suspense fallback={<p>ok..........</p>}><About /></Suspense>,
       },
       {
         path: 'ContactUs',
-        element: <ContactUs />,
+        element:<Suspense fallback={<h1>wait............</h1>}><ContactUs /></Suspense> ,
       },
       {
         path: 'RestroMenu/:resid',

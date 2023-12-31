@@ -1,7 +1,5 @@
-import { AiOutlineShoppingCart, AiFillStar } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
 const ResturantCard = (props) => {
-  console.log(props);
-const { url, time, item_name, provider, rating }=props
     return (
       <div className="card">
       
@@ -26,4 +24,16 @@ const { url, time, item_name, provider, rating }=props
       </div>
     );
   };
-  export default ResturantCard;
+
+
+
+ export const Hofrestro=(ResturantCard)=>{
+  return(props)=>(
+    <div>
+    <label >opened</label>
+    <ResturantCard {...props}/>
+    </div>
+  )
+
+ }
+ export default ResturantCard;

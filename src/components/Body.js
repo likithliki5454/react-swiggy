@@ -2,6 +2,7 @@
 import ResturantContainer from "./ResturantContainer";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import useStatus from "./util/useStatus";
 
 
 const Body = () => {
@@ -16,11 +17,13 @@ const Body = () => {
   }, [])
 
 
+const status =useStatus()
+
   const fetchdata = async () => {
-    var datafetched = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING')
+    var datafetched = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
     const response = await datafetched.json()
-    setSearch(response.data.cards[2].card.card.gridElements.infoWithStyle.restaurants)
-    setinitial(response.data.cards[2].card.card.gridElements.infoWithStyle.restaurants)
+    setSearch(response.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
+    setinitial(response.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
   }
 
   const handleRatings = () => {
@@ -49,13 +52,19 @@ const Body = () => {
     }
   }
 
-  if (search.length === 0) {
-    return (
-     <Shimmer/>
+  if(status===false){
+    return(
+      <h1>looks like offline</h1>
     )
   }
 
-  return (
+
+
+
+
+  return search.length === 0 ? (
+    <Shimmer/>
+    ) : (
     <div className="body">
       <button onClick={handleRatings}>Top Resturats</button>
       <button onClick={handleAllfood}>All Foods</button>
