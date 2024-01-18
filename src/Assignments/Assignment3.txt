@@ -1,0 +1,34 @@
+1. What is JSX?
+JSX stands for Javascript XML.
+JSX allows us to write HTML in React.
+JSX syntax is similar to HTML syntax.
+Attributes in JSX are given in camel case 
+for eg: className, TabIndex
+To write multiple lines jn JSX we must wrap the code in () paranthesis.
+As JSX code is not understood to the browser it transpiles the code before
+it reaches to JSEngine.Transpiling is done by a package called Babel which
+is included in parcel. Babel is a javascript compiler that converts the 
+JSX code to core React.createElement() structure which is a valid javascript.
+
+
+2. Superpowers of JSX
+Add javascript code in JSX by using {} curly braces
+for eg: {10+1} , {num1}
+Component Composition, Element Composition
+Prevents cross side attacks
+Code readability
+Increase performance
+
+3. Role of type attribute in script tag? What options can i use there?
+The type attribute specifies the type of the script. The type attribute identifies the content between the <script> and </script> tags. It has a Default value which is “text/javascript”.
+-text/javascript : It is the basic standard of writing javascript code inside the <script> tag.
+-text/ecmascript : this value indicates that the script is following the EcmaScript standards.
+-module: This value tells the browser that the script is a module that can import or export other files or modules inside it.
+-text/babel : This value indicates that the script is a babel type and required bable to transpile it.
+-text/typescript: As the name suggest the script is written in TypeScript.
+
+
+4.{TitleComponent} vs {/TitleComponent} vs {TitleComponent}{/TitleComponent} in JSX.
+{TitleComponent}: This value describes the TitleComponent as a javascript expression or a variable. The {} can embed a javascript expression or a variable inside it.
+<TitleComponent/> : This value represents a Component that is basically returning Some JSX value. In simple terms TitleComponent a function that is returning a JSX value. A component is written inside the {<  />} expression.
+<TitleComponent></TitleComponent> : <TitleComponent /> and <TitleComponent></TitleComponent> are equivalent only when < TitleComponent /> has no child components. The opening and closing tags are created to include the child components.

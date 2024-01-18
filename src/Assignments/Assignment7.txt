@@ -1,0 +1,38 @@
+1. What are the various ways to add images into our App? Explain with code examples.
+The first way to add images in our app using `CDN link`.
+Example:
+<img src = "https://tse4.mm.bing.net/th?id=OIP.1d6tBbNiJTFQNEK_k0sSjQHaFj&pid=Api&P=0"/>
+The second way to add images in our app using `import`.
+Example:
+import {logo} from ".Images/logo.png";
+
+function Header(){
+  return(
+    <>
+    <img src = {logo} />
+    </>
+  )
+}
+Firstly, in this we will store our image in any folder and then we will import that images via folder structure.
+The good way of structuring of image folder is "assets/Images/logo.png"
+
+2. What would happend if we do console.log(useState())?
+If we do console.log(useState()), we get an array [undefined, function] the first item is an array is state variable is undefined and the second item is an array is function which is setState function. This function through we can change the value of state variable.
+
+3. How will useEffect behave if we don't add a dependency array?
+If we don't add a dependency array then the useEffect Hook will be called everytime after the component is rendered. 
+
+4. What is SPA?
+A single page application works in the browser while they don't require any page reload and extra waiting time. As we change the routes only the components are changed on a single page instead of refreshing the whole page.
+Advantages of SPA :
+- Provide better user experience
+- Increase efficiency (smooth navigation)
+- Fast and responsive
+Some sites that use Single Page Application are :
+- Facebook, Twitter, Gmail, Google Drive, Uber, Paypal, Skype, GoogleMaps, Pinterest.
+
+
+5. What is the difference between client side and server side routing?
+In server side routing when navigating a whole document is served to the user. It will request a new page from the server. It causes the whole page to refresh.
+In client side route happens when the route is handled internally by the javascript that is loaded on the page.
+When a user clicks on a link, the URL changes but the request to the server is prevented. The whole page won't refresh when using client-side routing.

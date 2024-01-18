@@ -69,12 +69,12 @@ const RestroMenu = () => {
       </p>
       <div className="accordian">
         {datas.map((sugdata, index) => (
-          <AccordionItem 
+        <AccordionItem 
           key={index} 
           sugdata={sugdata} 
           isOpen={index===showindex}
           setshowindex={()=>setshowindex(index)}
-          />
+        />
         ))}
       </div>
       <div className="accborder"></div>

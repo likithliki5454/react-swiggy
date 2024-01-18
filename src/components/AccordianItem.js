@@ -4,6 +4,7 @@ import Desription from "./Desription";
 
 const AccordionItem = ({ sugdata ,key ,isOpen ,setshowindex}) => {
 
+
   
     const handleMenu = () => {
         setshowindex();

@@ -1,0 +1,59 @@
+1. What is emmet?
+Emmet is a plugin in text editors that is used for more faster and efficient coding.
+It allows developers to write HTML and CSS code using shorthand notation which is then
+expanded into full code by the plugin.
+For example - if in our html file we write html:5 and press enter key then we get an 
+HTML structure into our page.
+
+2. What is the difference between a library and a framework?
+A framework is fully flegged which means it has all the necessary pre defined 
+libraries for it to work on the other hand a library depends on external packages 
+for some of it functionality.
+For example:
+React uses reactRouter(external package) for navigation while
+angular has built in navigation.
+
+3. What is cdn and why do we use it?
+CDN is content network delivery.
+CDN is a network of interconnected servers that speeds up webpage loading for
+data heavy applications.When a user visits a website data from that website's server 
+has to travel across the internet to reach the user's computer.If the user is located 
+far from the server it will take a long time to load a large file,video/image. So instead
+a website content is stored on CDN servers geographically closer to the users and reaches 
+the computer faster.
+The main purpose of CDN is to reduce the latency or to reduce the delay in communication
+created by the network design. 
+
+4. Why is react known as React?
+React is a JavaScript library for building user interfaces.It was developed by Facebook and 
+named "React" because to help developers build user interfaces that are fast responsive 
+and "reactive". The library was designed to "react" to changes in data.
+
+5. What is cross origin in the sciprt tag?
+The crossorigin attribute sets mode of an request to an HTTP CROS request.
+Web pages often make request to load resources on other servers.
+CORS stands for Cross Origin Resource Sharing and is the mechanism that allows to request
+for a resource (eg: stylesheets, images, fonts, scripts) from another domain.
+
+6. What is the difference between react and reactDOM?
+The react package contains react.createElemet(), React.Component and other helpers related
+to components and classes while reactDOM package contains reactDOM.render() in react-dom and in 
+react-dom/server we have server side rendering support.
+
+7. What is the difference between react.development.js and react.production.js?
+The first one is used for development purpose. It has hot reloading feature or live debugging
+while the latter one does'nt have anything like this because it's purpose is to give clean,
+optimized, minified build. When the app is live we want our app to work smoothly and fast.
+
+8. What are async and defer attributes?
+Async and defer are the boolean attributes used in script tag that are used to load the 
+external scripts efficiently into our web page. 
+When a web page loads 2 things happen HTML parsing and loading of scripts(i.e fetching and
+executing). 
+When we use async attribute scripts are fetched asynchronously from network in parallel with
+HTML parsing. As soon as they are fetched, they are executed while the parsing is paused.
+And when the execution of scripts are completed the parsing continues. 
+In defer attribute both the HTML Parsing and scripts fetching occurs in parallel. All the 
+script are executed only after HTML Parsing is completed. Defer attribute maintains the order
+of scripts whileasync doesn't. 
+
