@@ -5,15 +5,15 @@ import "./app.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
 import Body from "./components/Body";
-// import About from "./components/About";
-// import ContactUs from "./components/ContactUs";
 import RestroMenu from "./components/RestroMenu";
 import UserContext from "./components/util/UserContext";
+import Cart from "./components/Cart";
+import { Provider } from "react-redux";
+import appStore from "./components/util/redux/appStore";
 
 
 ///lazy loading
 
-const ContactUs=lazy(()=>import('./components/ContactUs'))
 
 const About=lazy(()=>import('./components/About'))
 
@@ -26,15 +26,19 @@ setuname('Likith')
 },[])
 
   return (
+    <Provider store={appStore}>
     <UserContext.Provider value={{username:uname ,setuname}}>
     <div>
       <Header />
       <Outlet />
     </div>
     </UserContext.Provider>
+    </Provider>
   );
 };
 export default App
+
+
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -49,12 +53,12 @@ const appRouter = createBrowserRouter([
         element: <Suspense fallback={<p>ok..........</p>}><About /></Suspense>,
       },
       {
-        path: 'ContactUs',
-        element:<Suspense fallback={<h1>wait............</h1>}><ContactUs /></Suspense> ,
+        path: 'Cart',
+        element:<Suspense fallback={<h1>wait............</h1>}><Cart /></Suspense> ,
       },
       {
         path: 'RestroMenu/:resid',
-        element: <RestroMenu />,
+        element: <RestroMenu/>,
       },
     ],
   },

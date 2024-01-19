@@ -3,10 +3,15 @@ import { AiOutlineShoppingCart} from "react-icons/ai";
 import { Link } from "react-router-dom";
 import useStatus from "./util/useStatus";
 import UserContext from "./util/UserContext";
+import { useSelector } from "react-redux";
 
 
 const Header = () => {
   const [logins, setlogins] = useState('LogIn')
+
+
+const cart=useSelector((store)=>store.cartdata.items)
+//select using the redux store  to reciee the data we use this approach
 
 
 const  data=useContext(UserContext)
@@ -35,10 +40,10 @@ const status=useStatus()
             <Link to='/'><li>Home</li></Link>
             <Link to='/about'><li>About</li></Link>
             <li>Career</li>
-           <Link to='/contactus'><li>Contact us</li></Link> 
+           <Link  to='/cart'><li><AiOutlineShoppingCart  />({cart.length})</li></Link> 
             <li>{data.username}</li>
             </ul>
-            <AiOutlineShoppingCart className="cart" />
+            
             <button onClick={handleLogin} className="log">{logins}</button>
         </div>
       </div>

@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import ResturantCard ,{Hofrestro}from "./ResuturantCard";
+
 const ResturantContainer = ({ data }) => {
 
   const Hodresult= Hofrestro(ResturantCard)
+  //hof
+
     return (
       <div className="container">
         {data.map((items) => (   
